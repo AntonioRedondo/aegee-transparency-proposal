@@ -1,0 +1,117 @@
+@import "_variables.scss";
+
+.theme-menu {
+	width: 27%;
+	width: 300px;
+	height: 60px;
+	margin: 15px 0 30px -4px;
+	
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+
+	background: $color3;
+	border: solid white 4px;
+	border-radius: 8px;
+	box-shadow: 2px 2px 12px color-mod(black a(0.15));
+	
+	cursor: pointer;
+	
+	color: white;
+	font-size: 25px;
+	font-family: Bebas Neue;
+	
+	@media (max-width: $breakpointMobile) {
+		width: 100%;
+		position: relative;
+	}
+	
+	@media (min-width: $breakpointMedium) {
+		left: calc(50% - 670px);
+	}
+
+	&:hover {
+		background: $color2;
+	}
+
+	&--open {
+		.theme-menu__arrow {
+			transform: rotate(0);
+		}
+		
+		.theme-menu-list {
+			height: calc(50px * 4);
+			opacity: 1;
+			pointer-events: initial;
+		}
+	}
+	
+	&__arrow {
+		width: 25px;
+		height: 25px;
+		display: block;
+		z-index: 5;
+		position: absolute;
+		top: 13px;
+		right: 15px;
+		
+		fill: white;
+		
+		transition: 120ms $ease-out;
+		
+		transform: rotate(180deg);
+	}
+	
+	&__close-surface {
+		width: 100%;
+		height: @width;
+		
+		display: none;
+		position: fixed;
+		top: 0;
+		right: 0;
+		
+		&--in {
+			display: block;
+		}
+	}
+}
+
+.theme-menu-list {
+	width: calc(100% + 8px);
+	height: calc(50px * 3);
+	margin: 0 -4px;
+	padding: 0;
+
+	position: absolute;
+	bottom: 60px;
+	z-index: 2;
+	overflow: hidden;
+
+	pointer-events: none;
+
+	background: $color2;
+	border-radius: 8px;
+	box-shadow: 2px 2px 12px color-mod(black a(0.1));
+
+	transition: 120ms $ease-out;
+
+	opacity: 0;
+
+	&__entry {
+		height: 50px;
+		margin: 0;
+		padding: 0 15px;
+
+		display: flex;
+		align-items: center;
+		list-style-type: none;
+
+		transition: $time1;
+
+		&:hover {
+			background: $color1;
+		}
+	}
+}

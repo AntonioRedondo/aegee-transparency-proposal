@@ -1,0 +1,301 @@
+@import "_variables.scss";
+
+*, *::before, *::after {
+	box-sizing: border-box;
+	
+	&:focus {
+		outline: none;
+	}
+}
+
+html {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.body {
+	margin: 0;
+	
+	background: black;
+	
+	color: white;
+	font-family: Source Sans Pro;
+	font-size: 18px;
+	line-height: 26px;
+
+	transition: $time1;
+	
+	&--in {
+		position: relative;
+
+		.darkener-main {
+			opacity: 0;
+		}
+		
+		.cover__logo {
+			opacity: 1;
+			transform: scale3d(1, 1, 1);
+		}
+		
+		.cover__text {
+			opacity: 1;
+		}
+		
+		.cover__arrow-down-a {
+			opacity: 1;
+		}
+	}
+}
+
+b {
+	font-weight: bold;
+}
+
+a {
+	color: $color4;
+	transition: $time1;
+	
+	&:hover {
+		text-shadow: 0 0 10px $color4;
+	}
+}
+
+p {
+	margin: 20px 0 0;
+}
+
+li {
+	margin-top: 20px;
+}
+
+h1 {
+	margin: 35px 0 20px;
+	padding: 10px 10px 5px 10px;
+	
+	display: inline-block;
+	background: $color3;
+	box-shadow:
+		10px 10px 0 $color6,
+		0 0 40px color-mod(black a(0.3));
+	
+	font-family: Bebas Neue, sans-serif;
+	font-size: 60px;
+	font-weight: normal;
+	line-height: 55px;
+
+	transition: $time1 $ease-out;
+}
+
+h2 {
+	margin: 35px 0 0;
+
+	color: $color4;
+	font-family: Source Sans Pro;
+	font-size: 34px;
+	line-height: 38px;
+}
+
+table {
+	width: 100%;
+	margin: 40px 0;
+
+	table-layout: fixed;
+	border-collapse: collapse;
+
+	font-size: 14px;
+	line-height: 18px;
+	
+	@media (max-width: $breakpointMobile) {
+		margin: 40px -20px;
+		width: calc(100% + 40px);
+	}
+
+	td {
+		padding: 10px;
+		border-bottom: 2px solid white;
+		vertical-align: top;
+	}
+	
+	.row {
+		td {
+			padding: 5px 10px;
+			border-bottom: none;
+		}
+	}
+}
+
+
+
+
+
+.dropcap::first-letter {
+	margin: 8px 12px 0 0;
+	float: left;
+	font-size: 64px;
+}
+
+.mention {
+	margin-left: 6%;
+	font-style: italic;
+}
+
+.info {
+	background: $color1;
+	padding: 20px;
+	margin: 25px 0;
+	border-radius: 10px;
+}
+
+.fb-iframe {
+	width: 550px;
+	height: 720px;
+	margin: 55px auto 50px;
+	
+	display: block;
+	
+	border: none;
+	
+	@media (max-width: $breakpointMobile) {
+		width: 100%;
+		height: 670px;
+	}
+}
+
+.image {
+	width: 100%;
+	margin: 40px 0 0;
+
+	display: block;
+	border-radius: 10px;
+	box-shadow: 2px 2px 12px color-mod(black a(0.1));
+	
+	@media (max-width: $breakpointMobile) {
+		margin: 40px -20px 0;
+		width: calc(100% + 40px);
+		border-radius: 0;
+	}
+
+	&--li {
+		@media (max-width: $breakpointMobile) {
+			margin: 40px -60px 0;
+			width: calc(100% + 80px);
+		}
+	}
+
+	&__caption {
+		margin: 0;
+		padding: 8px 0 0;
+
+		font-size: 75%;
+		line-height: 20px;
+		text-align: center;
+		font-style: italic;
+	}
+}
+
+.link {
+	position: relative;
+	
+	&:hover &__icon {
+		opacity: 1;
+	}
+	
+	&:target {
+		animation: 6s permalink;
+		
+		/* stylelint-disable */
+		@at-root { @keyframes permalink {
+			0% {
+				// background: color-mod($color4 a(0.4));
+				outline: 10px solid color-mod($color4 a(0.7));
+			}
+			25% {
+				outline: 10px solid color-mod($color4 a(0.7));
+			}
+			100% {
+				outline: 10px solid color-mod($color4 a(0));
+			}
+		} }
+		/* stylelint-enable */
+	}
+	
+	&__icon {
+		display: block;
+		position: absolute;
+		left: -35px;
+		
+		transition: $time1;
+		
+		opacity: 0;
+		
+		&:hover {
+			filter: drop-shadow(0 0 8px white);
+		}
+
+		&--li {
+			left: -50px;
+		}
+	}
+	
+	&__image {
+		width: 40px;
+		height: 50px;
+		padding-right: 15px;
+		fill: white;
+	}
+}
+
+.skrollr-deck {
+	width: 100%;
+	margin: 0 auto $gap;
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	
+	box-shadow: 0 0 40px black;
+	
+	@media (max-width: $breakpointMobile) {
+		margin: 0 auto $gapMobile;
+		filter: none !important;
+		transform: none !important;
+	}
+	
+	@media (min-resolution: 180dpi) {
+		filter: none !important;
+	}
+	
+	&::after {
+		content: "";
+		
+		width: 100%;
+		height: 4px;
+		
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		z-index: 8;
+		
+		background: inline("img/line.svg");
+		background-size: 100%;
+	}
+}
+
+.darkener-main {
+	width: 100%;
+	height: 100%;
+	
+	z-index: 15;
+	
+	position: fixed;
+	top: 0;
+	
+	background-color: black;
+	
+	pointer-events: none;
+	
+	transition: all 0.5s;
+	
+	opacity: 1;
+}

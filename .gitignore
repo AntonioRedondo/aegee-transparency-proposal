@@ -1,0 +1,11 @@
+.idea
+.history
+build
+dev
+node_modules
+npm-debug.log
+other
+src/style/z_atoms.scss
+docs/**/*.css
+docs/**/*.js
+docs/**/*.svg

@@ -1,0 +1,36 @@
+@import "_variables.scss";
+
+.main {
+	margin-bottom: 0;
+	padding: 0 0 80px;
+	
+	z-index: 5;
+	background:
+		url('img/header.png') 0 / 100% no-repeat,
+		url('img/footer.png') 0 100% / 100% no-repeat,
+		$color3;
+
+	transition: background-color $time1, background-position $time1;
+		
+	@media (max-width: $breakpointMobile) {
+		background-size: 300%;
+	}
+		
+	&__column {
+		max-width: 620px;
+		margin: 0 20px 0 36%;
+		
+		@media (max-width: $breakpointSmall) {
+			margin: 0 20px 0 360px;
+		}
+		
+		@media (max-width: $breakpointMobile) {
+			max-width: 100%;
+			margin: 0 20px;
+		}
+			
+		@media (min-width: $breakpointMedium) {
+			margin: 0 auto;
+		}
+	}
+}

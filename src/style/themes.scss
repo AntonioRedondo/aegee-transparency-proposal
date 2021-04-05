@@ -1,0 +1,240 @@
+@import "_variables.scss";
+
+.t2 {
+	.body {
+		background: $whiteE;
+		color: black;
+	}
+	
+	a {
+		color: $color5;
+		&:hover {
+			text-shadow: 0 0 10px $color5;
+		}
+	}
+	
+	h1 {
+		background: $color2;
+		color: white;
+	}
+
+	h2 {
+		color: $color5;
+	}
+	
+	.link {
+		&__icon {
+			&:hover {
+				filter: drop-shadow(0 0 8px $gray1);
+			}
+		}
+		
+		&__image {
+			fill: $gray2;
+		}
+	}
+	
+	.table-of-contents {
+		@media (max-width: $breakpointMobile) {
+			background:
+				radial-gradient(
+					ellipse farthest-corner at 50% 0,
+					$whiteD 10%,
+					$whiteE 80%
+				) 50% 0% / 600% no-repeat;
+		}
+	}
+	
+	.table-of-contents__menu a {
+		color: $gray2;
+
+		&:hover {
+			text-shadow: 0 0 10px $whiteA;
+		}
+	}
+	
+	.theme-menu {
+		background: $color2;
+	}
+	
+	.cover__bg {
+		color: white;
+	}
+	
+	.cover__authors {
+		p {
+			color: white;
+		}
+		
+		h1 {
+			background: transparent;
+		}
+	}
+	
+	.main {
+		background: $whiteE;
+	}
+}
+
+.t3 {
+	a {
+		color: yellow;
+		
+		&:hover {
+			text-shadow: 0 0 10px $color5;
+		}
+	}
+	
+	h1 {
+		color: black;
+		background: cyan;
+		box-shadow:
+			10px 10px 0 red,
+			0 0 40px color-mod(black a(0.3));
+	}
+
+	h2 {
+		color: yellow;
+	}
+	
+	.table-of-contents {
+		@media (max-width: $breakpointMobile) {
+			background:
+				radial-gradient(
+					ellipse farthest-corner at 50% 0,
+					black 10%,
+					$gray1 80%
+				) 50% 0% / 600% no-repeat;
+		}
+	}
+	
+	.table-of-contents__menu a {
+		color: cyan;
+	}
+	
+	.table-of-contents__line {
+		background: red;
+	}
+
+	.cover__authors {
+		p {
+			color: white;
+		}
+
+		h1 {
+			background: transparent;
+			box-shadow: none;
+		}
+	}
+
+	.main {
+		background: black;
+	}
+}
+
+.t4 {
+	.body {
+		background: $whiteA;
+		color: $gray1;
+		font-family: serif;
+		font-size: 18px;
+	}
+	
+	a {
+		color: $color5;
+		
+		&:hover {
+			text-shadow: 0 0 10px $color5;
+		}
+	}
+	
+	h1 {
+		margin: 35px 0 20px;
+		padding: 10px 10px 5px 10px;
+		background: $color2;
+		font-family: Verdana;
+		font-size: 45px;
+		color: white;
+	}
+	
+	h2 {
+		font-family: serif;
+		color: $color5;
+	}
+
+	table {
+		border-collapse: initial;
+	}
+
+	.info {
+		border-radius: 0;
+		border: 2px solid grey;
+	}
+	
+	.link {
+		&__icon {
+			&:hover {
+				filter: drop-shadow(0 0 8px $gray1);
+			}
+		}
+		
+		&__image {
+			fill: $gray2;
+		}
+	}
+
+	.image {
+		border-radius: 0;
+	}
+	
+	.table-of-contents {
+		@media (max-width: $breakpointMobile) {
+			background:
+				radial-gradient(
+					ellipse farthest-corner at 50% 0,
+					$whiteD 10%,
+					$whiteE 80%
+				) 50% 0% / 600% no-repeat;
+		}
+	}
+	
+	.table-of-contents__menu a {
+		font-family: serif;
+		color: $gray2;
+	}
+	
+	.table-of-contents__menu > li > a {
+		font-family: Verdana;
+		font-size: 22px;
+	}
+	
+	.theme-menu {
+		background: $color1;
+	}
+	
+	.cover__bg {
+		color: white;
+	}
+	
+	.cover__authors {
+		p {
+			color: white;
+		}
+
+		h1 {
+			margin: 0 0 10px;
+			padding: 0 10px 0 10px;
+			background: transparent;
+		}
+	}
+	
+	.main {
+		background: url('img/clouds.png');
+		background-attachment: fixed;
+		background-size: 40%;
+
+		@media (max-width: $breakpointMobile) {
+			background-size: 100%;
+		}
+	}
+}
