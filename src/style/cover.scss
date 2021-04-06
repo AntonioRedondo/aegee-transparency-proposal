@@ -46,7 +46,7 @@
 		margin: auto;
 		
 		position: absolute;
-		top: 22%;
+		top: 16%;
 		left: 0;
 		right: 0;
 		
@@ -56,15 +56,15 @@
 	}
 	
 	&__logo {
-		width: 90vh;
+		width: 135vh;
 		min-width: 200px;
 		min-width: 200px;
 		margin: 0 auto 3vh;
+		padding-left: 10vh;
 		
 		display: block;
 		
-		// filter: drop-shadow(0 0 3vw white);
-		filter: drop-shadow(0 0 1vw color-mod(black a(50%)));
+		// filter: drop-shadow(0 0 1vw color-mod(black a(50%)));
 		
 		transition: all 3s ease-out;
 		
@@ -72,8 +72,8 @@
 		transform: scale3d(0.8, 0.8, 1);
 		
 		@media (max-width: $breakpointMobile) {
-			width: 80vw;
-			filter: drop-shadow(0 0 10vw color-mod(black a(50%)));
+			width: 95vw;
+			padding-left: 2vw;
 		}
 	}
 	
