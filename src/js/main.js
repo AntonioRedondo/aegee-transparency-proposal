@@ -194,56 +194,6 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	
 	
-	// Sets the size FB iframes depending on desktop or mobile
-	var width = isMobile() ? 320 : 500,
-		height = isMobile() ? 500 : 560,
-		height2 = isMobile() ? 400 : 500;
-	
-	// d.gc("activities__fb-iframe").src = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAegeeLondon%2F&tabs=events&small_header=true&hide_cover=false&show_facepile=true&width=" + width + "&height=" + height;
-	// d.gc("contact__fb-iframe").src = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAegeeLondon%2F&tabs=messages&small_header=false&hide_cover=false&show_facepile=true&width=" + width + "&height=" + height2;
-	
-	// Adds logic for 'scroll' and 'resize' events
-	var scrolled = false;
-	var distance = offsetFunctions.d0g;
-	var toc = d.gc("table-of-contents");
-
-	d.ae("scroll", function() {
-		if (window.pageYOffset >= distance && !scrolled) {
-			toc.classList.add("table-of-contents--in");
-			scrolled = true;
-		} else if (window.pageYOffset < distance && scrolled) {
-			// toc.classList.remove("table-of-contents--in");
-			scrolled = false;
-		}
-	});
-	
-	d.ae("resize", function() {
-		d.st(function() {
-			setBodyHeight();
-			skrollrInstance.refresh();
-			moveLine();
-		}, 300);
-		d.gc("table-of-contents").classList.remove("table-of-contents--open");
-		d.gc("table-of-contents__three-bars-close-surface").classList.remove("table-of-contents__three-bars-close-surface--in");
-	});
-	
-	d.ae("load", function() { // The load event isn't fired on Chrome 89 when there is a hash on the URL
-		setBodyHeight();
-		moveLine(1, true);
-		// d.gc("body").classList.add("body--in");
-	});
-	
-	
-	
-	// Adapts the UI to remove intro animations if the URL points to a section
-	var hash = window.location.hash;
-	if (hash && !/^#(cover|summary)/.test(hash) || isMobile()) {
-		var toc = d.gc("table-of-contents");
-		toc.classList.add("table-of-contents--in");
-	}
-	
-	
-	
 	// Set ups the navigation top bar for mobile screens
 	d.qsa(".table-of-contents a, .table-of-contents__three-bars, .table-of-contents__three-bars-close-surface").forEach(function(item) {
 		item.addEventListener("click", function() {
@@ -302,6 +252,48 @@ function init() { // eslint-disable-line no-unused-vars
 		parseInt(localStorage.getItem("theme")) || 1,
 		localStorage.getItem("theme-name") || "Blue"
 	);
+	
+	
+	
+	// Adapts the UI to remove intro animations if the URL points to a section
+	var hash = window.location.hash;
+	if (hash && !/^#(cover|summary)/.test(hash) || isMobile()) {
+		var toc = d.gc("table-of-contents");
+		toc.classList.add("table-of-contents--in");
+	}
+	
+	
+	
+	// Adds general event listeners
+	var scrolled = false;
+	var distance = offsetFunctions.d0g;
+	var toc = d.gc("table-of-contents");
+
+	d.ae("scroll", function() {
+		if (window.pageYOffset >= distance && !scrolled) {
+			toc.classList.add("table-of-contents--in");
+			scrolled = true;
+		} else if (window.pageYOffset < distance && scrolled) {
+			// toc.classList.remove("table-of-contents--in");
+			scrolled = false;
+		}
+	});
+	
+	d.ae("resize", function() {
+		d.st(function() {
+			setBodyHeight();
+			skrollrInstance.refresh();
+			moveLine();
+		}, 300);
+		d.gc("table-of-contents").classList.remove("table-of-contents--open");
+		d.gc("table-of-contents__three-bars-close-surface").classList.remove("table-of-contents__three-bars-close-surface--in");
+	});
+	
+	d.ae("load", function() { // The load event isn't fired on Chrome 89 when there is a hash on the URL
+		setBodyHeight();
+		moveLine(1, true);
+		// d.gc("body").classList.add("body--in");
+	});
 
 	
 
