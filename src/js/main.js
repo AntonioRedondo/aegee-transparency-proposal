@@ -96,6 +96,7 @@ function init() { // eslint-disable-line no-unused-vars
 				case "c1p2":
 				case "c1p3":
 				case "c1p4":
+				case "c1p5":
 				case "introduction":								moveLine(1);	return calcSpace();
 				case "c2p1":
 				case "c2p2":
