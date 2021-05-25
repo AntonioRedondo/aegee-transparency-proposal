@@ -227,6 +227,8 @@ function init() { // eslint-disable-line no-unused-vars
 		localStorage.setItem("theme-name", text);
 		theme = themeNumber;
 		d.gc("theme-menu__title").innerText = text;
+		d.gc("theme-menu").classList.remove("theme-menu--open");
+		d.gc("theme-menu__close-surface").classList.remove("theme-menu__close-surface--in");
 	}
 	d.gc("t1").addEventListener("click", () => setTheme(1, "Blue"));
 	d.gc("t1").addEventListener("mouseover", () => setThemeTemp(1));
@@ -240,9 +242,9 @@ function init() { // eslint-disable-line no-unused-vars
 	d.gc("t4").addEventListener("click", () => setTheme(4, "It's 1996 again!"));
 	d.gc("t4").addEventListener("mouseover", () => setThemeTemp(4));
 	d.gc("t4").addEventListener("mouseout", () => setThemeTemp(theme));
-	d.gc("theme-menu").addEventListener("click", () => {
-		d.gc("theme-menu").classList.toggle("theme-menu--open");
-		d.gc("theme-menu__close-surface").classList.toggle("theme-menu__close-surface--in");
+	d.gc("theme-menu").addEventListener("mouseover", () => {
+		d.gc("theme-menu").classList.add("theme-menu--open");
+		d.gc("theme-menu__close-surface").classList.add("theme-menu__close-surface--in");
 	});
 	d.gc("theme-menu__close-surface").addEventListener("click", () => {
 		d.gc("theme-menu").classList.remove("theme-menu--open");
