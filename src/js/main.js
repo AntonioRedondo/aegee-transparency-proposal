@@ -178,6 +178,7 @@ function init() { // eslint-disable-line no-unused-vars
 				case "c5p2":
 				case "c5p3":
 				case "c5p4":
+				case "c5p4b":
 				case "c5p5":
 				case "c5p6":
 				case "c5p7":
