@@ -262,8 +262,8 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	// Adapts the UI to remove intro animations if the URL points to a section
 	var hash = window.location.hash;
+	var toc = d.gc("table-of-contents");
 	if (hash && !/^#(cover|summary)/.test(hash) || isMobile()) {
-		var toc = d.gc("table-of-contents");
 		toc.classList.add("table-of-contents--in");
 	}
 	
@@ -272,7 +272,6 @@ function init() { // eslint-disable-line no-unused-vars
 	// Adds general event listeners
 	var scrolled = false;
 	var distance = offsetFunctions.d0g;
-	var toc = d.gc("table-of-contents");
 
 	d.ae("scroll", function() {
 		if (window.pageYOffset >= distance && !scrolled) {
