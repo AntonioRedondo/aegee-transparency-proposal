@@ -2,8 +2,8 @@
 	"name": "aegee-london",
 	"author": "Antonio Redondo",
 	"homepage": "https://aegee-london.eu",
-	"description": "AEGEE-London official website",
-	"repository": "antonioredondo/AEGEE-London",
+	"description": "AEGEE-London presents the Transparency Proposal",
+	"repository": "antonioredondo/aegee-transparency-proposal",
 	"license": "CC-BY-NC-ND-4.0",
 	"main": "",
 	"scripts": {
