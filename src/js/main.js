@@ -173,6 +173,7 @@ function init() { // eslint-disable-line no-unused-vars
 				case "c4p2":
 				case "c4p3":
 				case "c4p4":
+				case "c4p5":
 				case "precedents":									moveLine(8);	return calcSpace();
 				case "c5p1":
 				case "c5p2":
