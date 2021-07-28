@@ -1,0 +1,17 @@
+@import "_variables.scss";
+
+.faq-index {	
+	@media (max-width: $breakpointMobile) {
+		width: 100%;
+	}
+
+	li {
+		margin: 0;
+		margin-top: 12px;
+	}
+	
+	&__question {
+		font-weight: bold;
+		text-decoration: none;
+	}
+}
