@@ -306,3 +306,15 @@ table {
 	
 	opacity: 1;
 }
+
+.index {
+	li {
+		margin: 0;
+		margin-top: 10px;
+	}
+	
+	&__question {
+		font-weight: bold;
+		text-decoration: none;
+	}
+}
