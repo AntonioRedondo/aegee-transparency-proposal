@@ -47,7 +47,7 @@ function init() { // eslint-disable-line no-unused-vars
 		get d11()	{ return this.d0g - gap + d.calcRelativePosition("#main", "#feedback-and-suggestions").top; },
 	};
 	
-	var skrollrInstance = skrollr.init({ //
+	var skrollrInstance = skrollr.init({
 		smoothScrolling: false,
 		forceHeight: false,
 		constants: offsetFunctions,
@@ -88,7 +88,7 @@ function init() { // eslint-disable-line no-unused-vars
 			var linkText = link.href.split("#").pop();
 			var positionIntroduction = d.calcRelativePosition("#introduction", "#" + linkText);
 			var extraSpace = linkText === "introduction" ? 0 : -35;
-			var calcSpace = () => offsetFunctions.d0g + positionIntroduction.top + extraSpace;
+			var calcSpace = function() { return offsetFunctions.d0g + positionIntroduction.top + extraSpace; };
 			
 			switch (linkText) {
 				case "summary":										return offsetFunctions.d0s;
@@ -208,22 +208,23 @@ function init() { // eslint-disable-line no-unused-vars
 	});
 	
 	
-
+	
 	// Set ups the theme menu and theme changing logic
 	var theme;
 	var isChanging = false;
 	function setThemeTemp(themeNumber) {
 		if (!isChanging) {
-			var toRemove = [1, 2, 3, 4].filter(t => t !== themeNumber);
-			d.qs("html").classList.remove(...toRemove.map(t => `t${t}`));
-			d.qs("html").classList.add(`t${themeNumber}`);
+			var themesToRemove = [1, 2, 3, 4].filter(function(theme) { return theme !== themeNumber; });
+			// d.qs("html").classList.remove(...themesToRemove.map(function(theme) { return 't' + theme; }));
+			themesToRemove.forEach(function(theme) { d.qs("html").classList.remove("t" + theme); });
+			d.qs("html").classList.add("t" + themeNumber);
 			d.qsa("main table").forEach(
-				table => table.setAttribute("border", themeNumber === 4 ? 1 : 0)
+				function(table) { return table.setAttribute("border", themeNumber === 4 ? 1 : 0); }
 			);
 		}
 	}
 	function setTheme(themeNumber, text) {
-		d.st(() => isChanging = false, 200);
+		d.st(function() { return isChanging = false, 200; });
 		setThemeTemp(themeNumber);
 		isChanging = true;
 		localStorage.setItem("theme", themeNumber);
@@ -233,23 +234,23 @@ function init() { // eslint-disable-line no-unused-vars
 		d.gc("theme-menu").classList.remove("theme-menu--open");
 		d.gc("theme-menu__close-surface").classList.remove("theme-menu__close-surface--in");
 	}
-	d.gc("t1").addEventListener("click", () => setTheme(1, "Blue"));
-	d.gc("t1").addEventListener("mouseover", () => setThemeTemp(1));
-	d.gc("t1").addEventListener("mouseout", () => setThemeTemp(theme));
-	d.gc("t2").addEventListener("click", () => setTheme(2, "Light"));
-	d.gc("t2").addEventListener("mouseover", () => setThemeTemp(2));
-	d.gc("t2").addEventListener("mouseout", () => setThemeTemp(theme));
-	d.gc("t3").addEventListener("click", () => setTheme(3, "High contrast"));
-	d.gc("t3").addEventListener("mouseover", () => setThemeTemp(3));
-	d.gc("t3").addEventListener("mouseout", () => setThemeTemp(theme));
-	d.gc("t4").addEventListener("click", () => setTheme(4, "It's 1996 again!"));
-	d.gc("t4").addEventListener("mouseover", () => setThemeTemp(4));
-	d.gc("t4").addEventListener("mouseout", () => setThemeTemp(theme));
-	d.gc("theme-menu").addEventListener("mouseover", () => {
+	d.gc("t1").addEventListener("click", function() { return setTheme(1, "Blue"); });
+	d.gc("t1").addEventListener("mouseover", function() { return setThemeTemp(1); });
+	d.gc("t1").addEventListener("mouseout", function() { return setThemeTemp(theme); });
+	d.gc("t2").addEventListener("click", function() { return setTheme(2, "Light"); });
+	d.gc("t2").addEventListener("mouseover", function() { return setThemeTemp(2); });
+	d.gc("t2").addEventListener("mouseout", function() { return setThemeTemp(theme); });
+	d.gc("t3").addEventListener("click", function() { return setTheme(3, "High contrast"); });
+	d.gc("t3").addEventListener("mouseover", function() { return setThemeTemp(3); });
+	d.gc("t3").addEventListener("mouseout", function() { return setThemeTemp(theme); });
+	d.gc("t4").addEventListener("click", function() { return setTheme(4, "It's 1996 again!"); });
+	d.gc("t4").addEventListener("mouseover", function() { return setThemeTemp(4); });
+	d.gc("t4").addEventListener("mouseout", function() { return setThemeTemp(theme); });
+	d.gc("theme-menu").addEventListener("mouseover", function() {
 		d.gc("theme-menu").classList.add("theme-menu--open");
 		d.gc("theme-menu__close-surface").classList.add("theme-menu__close-surface--in");
 	});
-	d.gc("theme-menu__close-surface").addEventListener("click", () => {
+	d.gc("theme-menu__close-surface").addEventListener("click", function() {
 		d.gc("theme-menu").classList.remove("theme-menu--open");
 		d.gc("theme-menu__close-surface").classList.remove("theme-menu__close-surface--in");
 	});
@@ -272,7 +273,7 @@ function init() { // eslint-disable-line no-unused-vars
 	// Adds general event listeners
 	var scrolled = false;
 	var distance = offsetFunctions.d0g;
-
+	
 	d.ae("scroll", function() {
 		if (window.pageYOffset >= distance && !scrolled) {
 			toc.classList.add("table-of-contents--in");
@@ -298,9 +299,9 @@ function init() { // eslint-disable-line no-unused-vars
 		moveLine(1, true);
 		// d.gc("body").classList.add("body--in");
 	});
-
 	
-
+	
+	
 	setBodyHeight();
 	moveLine(1, true);
 	d.gc("body").classList.add("body--in");
