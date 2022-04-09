@@ -43,8 +43,9 @@ function init() { // eslint-disable-line no-unused-vars
 		get d7()	{ return this.d0g - gap + d.calcRelativePosition("#main", "#introducing-the-content-format-guidelines").top; },
 		get d8()	{ return this.d0g - gap + d.calcRelativePosition("#main", "#precedents").top; },
 		get d9()	{ return this.d0g - gap + d.calcRelativePosition("#main", "#faq").top; },
-		get d10()	{ return this.d0g - gap + d.calcRelativePosition("#main", "#author").top; },
-		get d11()	{ return this.d0g - gap + d.calcRelativePosition("#main", "#feedback-and-suggestions").top; },
+		get d10()	{ return this.d0g - gap + d.calcRelativePosition("#main", "#chronology").top; },
+		get d11()	{ return this.d0g - gap + d.calcRelativePosition("#main", "#author").top; },
+		get d12()	{ return this.d0g - gap + d.calcRelativePosition("#main", "#feedback-and-suggestions").top; },
 	};
 	
 	var skrollrInstance = skrollr.init({
@@ -64,8 +65,9 @@ function init() { // eslint-disable-line no-unused-vars
 				case "introducing-the-content-format-guidelines":	moveLine(7 + up, true);		break;
 				case "precedents":									moveLine(8 + up, true);		break;
 				case "faq":											moveLine(9 + up, true);		break;
-				case "author":										moveLine(10 + up, true);	break;
-				case "feedback-and-suggestions":					moveLine(11 + up, true);	break;
+				case "chronology":									moveLine(10 + up, true);	break;
+				case "author":										moveLine(11 + up, true);	break;
+				case "feedback-and-suggestions":					moveLine(12 + up, true);	break;
 			}
 
 			if (name === "data_d0") {
@@ -174,6 +176,9 @@ function init() { // eslint-disable-line no-unused-vars
 				case "c4p3":
 				case "c4p4":
 				case "c4p5":
+				case "c4p6":
+				case "c4p7":
+				case "c4p8":
 				case "precedents":									moveLine(8);	return calcSpace();
 				case "c5p1":
 				case "c5p2":
@@ -187,8 +192,12 @@ function init() { // eslint-disable-line no-unused-vars
 				case "c5p8":
 				case "c5p9":
 				case "faq":											moveLine(9);	return calcSpace();
-				case "author":										moveLine(10);	return calcSpace();
-				case "feedback-and-suggestions":					moveLine(11);	return calcSpace();
+				case "c6p1":
+				case "c6p2":
+				case "c6p3":
+				case "chronology":									moveLine(10);	return calcSpace();
+				case "author":										moveLine(11);	return calcSpace();
+				case "feedback-and-suggestions":					moveLine(12);	return calcSpace();
 			}
 			
 			window.history.replaceState(null, null, " "); // https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r
