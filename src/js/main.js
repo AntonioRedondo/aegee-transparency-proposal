@@ -244,21 +244,32 @@ function init() { // eslint-disable-line no-unused-vars
 		d.gc("theme-menu").classList.remove("theme-menu--open");
 		d.gc("theme-menu__close-surface").classList.remove("theme-menu__close-surface--in");
 	}
-	d.gc("t1").addEventListener("click", function() { return setTheme(1, "Blue"); });
-	d.gc("t1").addEventListener("mouseover", function() { return setThemeTemp(1); });
-	d.gc("t1").addEventListener("mouseout", function() { return setThemeTemp(theme); });
-	d.gc("t2").addEventListener("click", function() { return setTheme(2, "Light"); });
-	d.gc("t2").addEventListener("mouseover", function() { return setThemeTemp(2); });
-	d.gc("t2").addEventListener("mouseout", function() { return setThemeTemp(theme); });
-	d.gc("t3").addEventListener("click", function() { return setTheme(3, "High contrast"); });
-	d.gc("t3").addEventListener("mouseover", function() { return setThemeTemp(3); });
-	d.gc("t3").addEventListener("mouseout", function() { return setThemeTemp(theme); });
-	d.gc("t4").addEventListener("click", function() { return setTheme(4, "It's 1996 again!"); });
-	d.gc("t4").addEventListener("mouseover", function() { return setThemeTemp(4); });
-	d.gc("t4").addEventListener("mouseout", function() { return setThemeTemp(theme); });
+	d.gc("t1").addEventListener("click", function(e) { e.stopPropagation(); return setTheme(1, "Blue"); });
+	d.gc("t1").addEventListener("mouseover", function(e) { e.stopPropagation(); return setThemeTemp(1); });
+	d.gc("t1").addEventListener("mouseout", function(e) { e.stopPropagation(); return setThemeTemp(theme); });
+	d.gc("t2").addEventListener("click", function(e) { e.stopPropagation(); return setTheme(2, "Light"); });
+	d.gc("t2").addEventListener("mouseover", function(e) { e.stopPropagation(); return setThemeTemp(2); });
+	d.gc("t2").addEventListener("mouseout", function(e) { e.stopPropagation(); return setThemeTemp(theme); });
+	d.gc("t3").addEventListener("click", function(e) { e.stopPropagation(); return setTheme(3, "High contrast"); });
+	d.gc("t3").addEventListener("mouseover", function(e) { e.stopPropagation(); return setThemeTemp(3); });
+	d.gc("t3").addEventListener("mouseout", function(e) { e.stopPropagation(); return setThemeTemp(theme); });
+	d.gc("t4").addEventListener("click", function(e) { e.stopPropagation(); return setTheme(4, "It's 1996 again!"); });
+	d.gc("t4").addEventListener("mouseover", function(e) { e.stopPropagation(); return setThemeTemp(4); });
+	d.gc("t4").addEventListener("mouseout", function(e) { e.stopPropagation(); return setThemeTemp(theme); });
+	d.gc("theme-menu").addEventListener("click", function() {
+		if (d.gc("theme-menu").classList.contains("theme-menu--open")) {
+			d.gc("theme-menu").classList.remove("theme-menu--open");
+			d.gc("theme-menu__close-surface").classList.remove("theme-menu__close-surface--in");
+		} else {
+			d.gc("theme-menu").classList.add("theme-menu--open");
+			d.gc("theme-menu__close-surface").classList.add("theme-menu__close-surface--in");
+		}
+	});
 	d.gc("theme-menu").addEventListener("mouseover", function() {
-		d.gc("theme-menu").classList.add("theme-menu--open");
-		d.gc("theme-menu__close-surface").classList.add("theme-menu__close-surface--in");
+		if (!isMobile()) {
+			d.gc("theme-menu").classList.add("theme-menu--open");
+			d.gc("theme-menu__close-surface").classList.add("theme-menu__close-surface--in");
+		}
 	});
 	d.gc("theme-menu__close-surface").addEventListener("click", function() {
 		d.gc("theme-menu").classList.remove("theme-menu--open");
