@@ -184,7 +184,7 @@ table {
 
 	&--li {
 		@media (max-width: $breakpointMobile) {
-			margin: 40px -60px 0;
+			margin: 40px 0 0 -60px;
 			width: calc(100% + 80px);
 		}
 	}
@@ -197,6 +197,12 @@ table {
 		line-height: 20px;
 		text-align: center;
 		font-style: italic;
+
+		&--li {
+			@media (max-width: $breakpointMobile) {
+				margin-left: -40px;
+			}
+	}
 	}
 }
 
