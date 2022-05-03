@@ -14,7 +14,7 @@ const preCss = require("precss");
 const cssNano = require("cssnano");
 
 function includeHtmlSections(sections) {
-	return sections.reduce((acc, section) => acc.concat({ search: `@@include('${section}.htm')`, strict: false, replace: fs.readFileSync(__dirname + `/src/htm/${section}.htm`).toString() }), [])
+	return sections.reduce((acc, section) => acc.concat({ search: `@@include('${section}.html')`, strict: false, replace: fs.readFileSync(__dirname + `/src/htm/${section}.htm`).toString() }), [])
 		.concat({ search: /(<!-- buildDev:start (\s|\S)*?<!-- buildDev:end -->)/, strict: false, replace: "" })
 		.concat({ search: /(<!-- buildGulp:start (\s|\S)*?<!-- buildGulp:end -->)/, strict: false, replace: "" })
 		.concat({ search: /(<!-- buildGulp2:start (\s|\S)*?<!-- buildGulp2:end -->)/, strict: false, replace: "" });
