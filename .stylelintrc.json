@@ -21,6 +21,7 @@
 			"ignore": [ "empty-lines" ]
 		}],
 		"rule-empty-line-before": null,
+		"selector-class-pattern": null,
 		"selector-list-comma-newline-after": "always-multi-line",
 		"scss/dollar-variable-empty-line-before": null,
 		"scss/dollar-variable-pattern": null

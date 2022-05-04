@@ -10,8 +10,7 @@
 		"lint": "concurrently \"eslint --fix \"**/*.js\" --ignore-pattern \"docs\"\" \"htmlhint src/**/*.html\" \"stylelint --fix \"**/*.scss\" --ip \"z_atoms.scss\"",
 		"start": "http-server docs -s",
 		"dev": "concurrently \"npm start\" \"gulp dev\"",
-		"build": "gulp",
-		"prepare": "husky install"
+		"build": "gulp"
 	},
 	"dependencies": {
 		"skrollr": "^0.6.26",
@@ -33,16 +32,9 @@
 		"gulp-sourcemaps": "^3.0.0",
 		"htmlhint": "^1.1.4",
 		"http-server": "^14.1.0",
-		"husky": "^7.0.4",
-		"lint-staged": "^12.4.1",
 		"postcss-assets": "^6.0.0",
 		"precss": "^4.0.0",
 		"stylelint": "^14.8.1",
 		"stylelint-config-standard-scss": "^3.0.0"
-	},
-	"lint-staged": {
-		"*.js": "eslint --fix",
-		"*.htm": "htmlhint",
-		"*.scss": "stylelint --fix"
 	}
 }

@@ -1,13 +1,11 @@
-@import "_variables.scss";
-
 .main {
 	margin-bottom: 0;
 	padding: 0 0 80px;
 	
 	z-index: 5;
 	background:
-		url('img/header.png') 0 / 100% no-repeat,
-		url('img/footer.png') 0 100% / 100% no-repeat,
+		url("img/header.png") 0 / 100% no-repeat,
+		url("img/footer.png") 0 100% / 100% no-repeat,
 		$color3;
 
 	transition: background-color $time1, background-position $time1;
